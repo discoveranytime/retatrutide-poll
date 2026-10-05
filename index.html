@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What Interests You Most About Retatrutide? — Community Poll</title>
+<meta name="description" content="Retatrutide is generating a lot of interest. What are you most curious about? Vote in the community poll.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="What Interests You Most About Retatrutide? — Community Poll">
+<meta property="og:description" content="Retatrutide is generating a lot of interest. What are you most curious about? Vote in the community poll.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="What Interests You Most About Retatrutide? — Community Poll">
+<meta name="twitter:description" content="Retatrutide is generating a lot of interest. What are you most curious about? Vote in the community poll.">
+<style>
+:root{
+  --bg:#06070d; --card:#0d1020; --ink:#edf0f9; --muted:#a9b1c9; --faint:#7f88a5;
+  --accent:#7cc7ff; --accent2:#5eead4; --accent3:#fb923c;
+  --line:rgba(255,255,255,.09); --radius:18px;
+  --grad:linear-gradient(100deg,var(--accent) 5%,var(--accent2) 50%,var(--accent3) 95%);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{
+  background:var(--bg); color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,"Helvetica Neue",Arial,sans-serif;
+  min-height:100vh; line-height:1.55;
+  background-image:radial-gradient(rgba(255,255,255,.055) 1px,transparent 1px);
+  background-size:22px 22px;
+}
+.wrap{max-width:640px;margin:0 auto;padding:20px 16px 64px}
+header.top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px}
+.badge{display:inline-flex;align-items:center;gap:8px;font-size:.68rem;font-weight:800;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:7px 14px;
+  background:rgba(255,255,255,.03)}
+.badge .dot{width:8px;height:8px;border-radius:50%;background:var(--grad);flex:0 0 auto}
+.preview-badge{display:none;font-size:.75rem;font-weight:700;color:#0b0b10;background:var(--accent3);
+  border-radius:999px;padding:7px 14px}
+body.preview .preview-badge{display:inline-block}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:26px 22px;box-shadow:0 18px 50px rgba(0,0,0,.45)}
+h1{font-size:1.55rem;line-height:1.25;letter-spacing:-.01em;margin:14px 0 10px}
+h1 .g{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lede{color:var(--muted);font-size:1rem;margin-bottom:6px}
+.status-row{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 4px}
+.pill{font-size:.72rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;
+  border-radius:999px;padding:5px 12px;border:1px solid var(--line);color:var(--muted)}
+.pill.open{color:var(--accent2);border-color:rgba(94,234,212,.4);background:rgba(94,234,212,.08)}
+.pill.closed{color:var(--accent3);border-color:rgba(251,146,60,.4);background:rgba(251,146,60,.08)}
+/* skeleton */
+.sk{border-radius:12px;background:linear-gradient(100deg,rgba(255,255,255,.04) 40%,rgba(255,255,255,.10) 50%,rgba(255,255,255,.04) 60%);
+  background-size:200% 100%;animation:sheen 1.4s linear infinite}
+@keyframes sheen{to{background-position:-200% 0}}
+/* options */
+fieldset{border:0;margin:18px 0 6px}
+legend{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.opt{display:block;margin-bottom:10px;cursor:pointer}
+.opt input{position:absolute;opacity:0;pointer-events:none}
+.opt .row{display:flex;align-items:center;gap:14px;border:1px solid var(--line);border-radius:14px;
+  padding:14px 16px;background:rgba(255,255,255,.02);transition:border-color .18s,background .18s,transform .18s}
+.opt .emoji{font-size:1.5rem;flex:0 0 auto;line-height:1}
+.opt .label{flex:1;font-size:.98rem}
+.opt .radio{width:22px;height:22px;border-radius:50%;border:2px solid var(--faint);flex:0 0 auto;
+  display:grid;place-items:center;transition:border-color .18s}
+.opt .radio::after{content:"";width:12px;height:12px;border-radius:50%;background:var(--grad);
+  transform:scale(0);transition:transform .18s}
+.opt:hover .row{border-color:rgba(124,199,255,.45);background:rgba(124,199,255,.05)}
+.opt input:checked + .row{border-color:var(--accent);background:rgba(124,199,255,.08);
+  box-shadow:0 0 0 1px var(--accent) inset}
+.opt input:checked + .row .radio{border-color:var(--accent)}
+.opt input:checked + .row .radio::after{transform:scale(1)}
+.opt input:focus-visible + .row{outline:2px solid var(--accent);outline-offset:3px}
+/* buttons */
+.btnrow{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+button{font:inherit;cursor:pointer;border:0;border-radius:14px;font-weight:800}
+.btn-primary{flex:1;min-width:180px;padding:15px 20px;font-size:1.02rem;color:#06121f;background:var(--grad);
+  transition:transform .15s,filter .15s}
+.btn-primary:hover:not(:disabled){filter:brightness(1.08);transform:translateY(-1px)}
+.btn-primary:disabled{opacity:.55;cursor:not-allowed;transform:none}
+.btn-ghost{padding:13px 18px;font-size:.92rem;color:var(--ink);background:rgba(255,255,255,.04);
+  border:1px solid var(--line)}
+.btn-ghost:hover{border-color:rgba(124,199,255,.5)}
+/* results */
+.results{margin-top:8px}
+.res-row{margin-bottom:14px}
+.res-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-bottom:6px;font-size:.95rem}
+.res-head .pct{font-weight:800;color:var(--accent);font-variant-numeric:tabular-nums}
+.res-head .votes{color:var(--faint);font-size:.8rem;font-variant-numeric:tabular-nums}
+.res-head > span:last-child{white-space:nowrap;flex:0 0 auto}
+.bar{height:12px;border-radius:999px;background:rgba(255,255,255,.06);overflow:hidden}
+.bar > i{display:block;height:100%;width:0;border-radius:999px;background:var(--grad);
+  transition:width 1s cubic-bezier(.22,.8,.3,1)}
+.res-row.mine .bar > i{box-shadow:0 0 12px rgba(124,199,255,.55)}
+.res-row.mine .res-head .opt-label::after{content:" · your vote";color:var(--accent2);font-size:.78rem;font-weight:700}
+.total{margin-top:16px;color:var(--muted);font-size:.92rem;font-variant-numeric:tabular-nums}
+.hidden-note,.closed-note{margin-top:18px;padding:14px 16px;border:1px dashed var(--line);border-radius:14px;
+  color:var(--muted);font-size:.93rem}
+.notice{margin-top:16px;padding:13px 16px;border-radius:14px;font-size:.93rem;border:1px solid var(--line);
+  background:rgba(255,255,255,.03);color:var(--muted)}
+.notice.err{border-color:rgba(251,113,133,.5);color:#fda4af;background:rgba(251,113,133,.07)}
+.notice.ok{border-color:rgba(94,234,212,.45);color:var(--accent2);background:rgba(94,234,212,.06)}
+.share-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px;padding-top:18px;border-top:1px solid var(--line)}
+.disclaimer{margin-top:22px;padding:16px 18px;border:1px solid var(--line);border-radius:14px;
+  color:var(--faint);font-size:.85rem;background:rgba(255,255,255,.015)}
+.disclaimer strong{display:block;color:var(--muted);font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px}
+.disclaimer p + p{margin-top:8px}
+footer{margin-top:28px;text-align:center;color:var(--faint);font-size:.8rem}
+footer a{color:var(--muted)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+@media(min-width:560px){
+  h1{font-size:1.9rem}
+  .card{padding:34px 32px}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+  .bar > i{transition:none}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <span class="badge"><span class="dot" aria-hidden="true"></span>Community poll</span>
+    <span class="preview-badge">Preview mode — connect a backend for community results</span>
+  </header>
+
+  <main class="card" id="app" aria-live="polite">
+    <!-- loading skeleton -->
+    <div id="loading">
+      <div class="sk" style="height:30px;width:70%;margin:14px 0 10px"></div>
+      <div class="sk" style="height:18px;width:95%;margin-bottom:22px"></div>
+      <div class="sk" style="height:58px;margin-bottom:10px"></div>
+      <div class="sk" style="height:58px;margin-bottom:10px"></div>
+      <div class="sk" style="height:58px;margin-bottom:10px"></div>
+      <div class="sk" style="height:52px;width:60%;margin-top:18px"></div>
+    </div>
+    <div id="content" hidden></div>
+  </main>
+
+  <section class="disclaimer" id="disclaimer" hidden aria-label="Disclaimer">
+    <strong>Please note</strong>
+    <div id="disclaimer-text"></div>
+  </section>
+
+  <footer>
+    <span id="foot-note">Anonymous voting · no account needed · no personal info collected</span>
+  </footer>
+</div>
+
+<script src="config.js"></script>
+<script>
+"use strict";
+/* ============================================================
+   Public poll frontend — reusable, backend-agnostic.
+   Live mode  : Supabase REST + Edge Functions (see docs/API.md)
+   Preview    : fully client-side, localStorage only
+   ============================================================ */
+
+const CFG = (window.POLL_CONFIG || {});
+const LIVE = !!(CFG.SUPABASE_URL && CFG.SUPABASE_ANON_KEY);
+if (!LIVE) document.body.classList.add("preview");
+
+const DEFAULT_THEME = {accent:"#7cc7ff", accent2:"#5eead4", accent3:"#fb923c",
+  bg:"#06070d", card:"#0d1020", ink:"#edf0f9", muted:"#a9b1c9"};
+
+const DEFAULT_DISCLAIMER =
+  "This poll is informational only. Community opinions and poll results are not " +
+  "medical advice, not recommendations, and not scientific evidence. Retatrutide is " +
+  "an investigational compound — always talk to a qualified healthcare professional " +
+  "about medical decisions.";
+
+/* Preview-mode seed: the Retatrutide community poll */
+const PREVIEW_SEED = {
+  id: "preview-retatrutide-interests",
+  slug: "retatrutide-interests",
+  title: "What Interests You Most About Retatrutide?",
+  description: "Retatrutide is generating a lot of interest. What are you most curious about?",
+  topic: "Retatrutide", category: "Weight Loss / Metabolic Health",
+  status: "open", hide_results_until_close: false, require_captcha: false,
+  disclaimer: DEFAULT_DISCLAIMER, theme: null,
+  options: [
+    {id:"p1", emoji:"\uD83D\uDD25", label:"How much weight can Retatrutide actually help me lose?"},
+    {id:"p2", emoji:"\uD83E\uDDE0", label:"How strongly does it reduce appetite and cravings?"},
+    {id:"p3", emoji:"\uD83D\uDCAA", label:"How does it affect muscle vs. fat loss?"},
+    {id:"p4", emoji:"\uD83E\uDDEC", label:"What other metabolic/health effects might it have?"},
+    {id:"p5", emoji:"\u26A0\uFE0F", label:"What side effects and long-term risks are associated with it?"},
+    {id:"p6", emoji:"\uD83D\uDC89", label:"How do different doses compare?"},
+    {id:"p7", emoji:"\uD83D\uDD04", label:"What happens after stopping Retatrutide?"},
+    {id:"p8", emoji:"\uD83D\uDCB0", label:"How much does Retatrutide realistically cost?"}
+  ]
+};
+
+/* ---- exact fingerprint snippet from docs/API.md ---- */
+async function fingerprint() {
+  const c = document.createElement('canvas');
+  const x = c.getContext('2d');
+  x.textBaseline = 'top'; x.font = '14px Arial';
+  x.fillText('poll-fp::' + navigator.userAgent, 2, 2);
+  const raw = [
+    navigator.userAgent, screen.width + 'x' + screen.height,
+    screen.colorDepth, Intl.DateTimeFormat().resolvedOptions().timeZone,
+    navigator.language, c.toDataURL()
+  ].join('|');
+  const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(raw));
+  return [...new Uint8Array(buf)].map(b => b.toString(16).padStart(2, '0')).join('');
+}
+
+const $ = (s, r) => (r || document).querySelector(s);
+const esc = s => String(s == null ? "" : s)
+  .replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")
+  .replace(/"/g,"&quot;").replace(/'/g,"&#39;");
+
+const app = $("#app"), loadingEl = $("#loading"), contentEl = $("#content");
+let poll = null, options = [], fp = null, turnstileWidgetId = null, turnstileToken = null;
+
+/* ---------- theme ---------- */
+function applyTheme(theme) {
+  const t = Object.assign({}, DEFAULT_THEME, theme || {});
+  const root = document.documentElement.style;
+  root.setProperty("--accent", t.accent); root.setProperty("--accent2", t.accent2);
+  root.setProperty("--accent3", t.accent3); root.setProperty("--bg", t.bg);
+  root.setProperty("--card", t.card); root.setProperty("--ink", t.ink);
+  root.setProperty("--muted", t.muted);
+  root.setProperty("--grad",
+    `linear-gradient(100deg, ${t.accent} 5%, ${t.accent2} 50%, ${t.accent3} 95%)`);
+}
+
+/* ---------- live-mode API helpers ---------- */
+function apiHeaders(json) {
+  const h = { apikey: CFG.SUPABASE_ANON_KEY, Authorization: "Bearer " + CFG.SUPABASE_ANON_KEY };
+  if (json) h["Content-Type"] = "application/json";
+  return h;
+}
+async function restGet(path) {
+  const r = await fetch(CFG.SUPABASE_URL + "/rest/v1/" + path, { headers: apiHeaders(false) });
+  if (!r.ok) throw new Error("api " + r.status);
+  return r.json();
+}
+async function rpc(name, body) {
+  const r = await fetch(CFG.SUPABASE_URL + "/rest/v1/rpc/" + name, {
+    method: "POST", headers: apiHeaders(true), body: JSON.stringify(body)
+  });
+  if (!r.ok) throw new Error("rpc " + r.status);
+  return r.json();
+}
+async function edgeFn(name, body) {
+  const r = await fetch(CFG.SUPABASE_URL + "/functions/v1/" + name, {
+    method: "POST", headers: apiHeaders(true), body: JSON.stringify(body)
+  });
+  const data = await r.json().catch(() => ({}));
+  return { status: r.status, data };
+}
+
+async function loadPollLive(slug) {
+  const sel = "id,slug,title,description,topic,category,status,hide_results_until_close,require_captcha,disclaimer,theme";
+  let rows;
+  if (slug) {
+    rows = await restGet("polls?slug=eq." + encodeURIComponent(slug) + "&select=" + sel);
+  } else {
+    rows = await restGet("polls?status=eq.open&select=" + sel + "&order=updated_at.desc&limit=1");
+  }
+  if (!rows.length) return null;
+  const p = rows[0];
+  const opts = await restGet("poll_options?poll_id=eq." + p.id +
+    "&select=id,label,emoji,position&order=position.asc");
+  return { poll: p, options: opts };
+}
+
+/* ---------- preview-mode store ---------- */
+const pvKey = slug => "pollsys_preview_votes_" + slug;
+const votedKey = id => "pollsys_voted_" + id;
+function previewVotes() {
+  try { return JSON.parse(localStorage.getItem(pvKey(poll.slug)) || "{}"); }
+  catch (e) { return {}; }
+}
+function previewResults() {
+  const counts = previewVotes();
+  const total = options.reduce((s, o) => s + (counts[o.id] || 0), 0);
+  return {
+    hidden: false, total,
+    options: options.map(o => {
+      const v = counts[o.id] || 0;
+      return { option_id: o.id, label: o.label, emoji: o.emoji, votes: v,
+               pct: total ? +(v / total * 100).toFixed(1) : 0 };
+    })
+  };
+}
+
+/* ---------- shared state ---------- */
+function getVotedOptionId() {
+  try { return localStorage.getItem(votedKey(poll.id)); } catch (e) { return null; }
+}
+function setVotedOptionId(optionId) {
+  try { localStorage.setItem(votedKey(poll.id), optionId); } catch (e) {}
+}
+function isVotable() { return poll.status === "open" || poll.status === "scheduled"; }
+
+/* ---------- rendering ---------- */
+function showLoading() { loadingEl.hidden = false; contentEl.hidden = true; }
+function showContent() { loadingEl.hidden = true; contentEl.hidden = false; }
+
+function renderDisclaimer() {
+  const box = $("#disclaimer"), txt = $("#disclaimer-text");
+  const d = (poll && poll.disclaimer) || (!LIVE ? DEFAULT_DISCLAIMER : "");
+  if (d) {
+    txt.innerHTML = esc(d).replace(/\n/g, "<br>");
+    box.hidden = false;
+  } else box.hidden = true;
+}
+
+function setMeta(p) {
+  const title = p.title + " — Community Poll";
+  document.title = title;
+  const set = (sel, val) => { const el = $(sel); if (el) el.setAttribute("content", val); };
+  set('meta[name="description"]', p.description || "");
+  set('meta[property="og:title"]', title);
+  set('meta[property="og:description"]', p.description || "");
+  set('meta[name="twitter:title"]', title);
+  set('meta[name="twitter:description"]', p.description || "");
+}
+
+function statusPill() {
+  return isVotable()
+    ? '<span class="pill open">Voting open</span>'
+    : '<span class="pill closed">Voting closed</span>';
+}
+
+function renderVoteForm() {
+  const votedId = getVotedOptionId();
+  const optsHtml = options.map((o, i) =>
+    `<label class="opt">
+       <input type="radio" name="poll-opt" value="${esc(o.id)}"${o.id === votedId ? " disabled" : ""}>
+       <span class="row"><span class="emoji" aria-hidden="true">${esc(o.emoji)}</span>
+       <span class="label">${esc(o.label)}</span><span class="radio" aria-hidden="true"></span></span>
+     </label>`).join("");
+  contentEl.innerHTML = `
+    <div class="status-row">${statusPill()}</div>
+    <h1>${highlightFirst(poll.title)}</h1>
+    <p class="lede">${esc(poll.description || "")}</p>
+    <form id="vote-form">
+      <fieldset>${optsHtml}</fieldset>
+      <div id="captcha-slot" style="margin:6px 0"></div>
+      <div class="notice err" id="vote-err" role="alert" hidden></div>
+      <div class="btnrow">
+        <button type="submit" class="btn-primary" id="vote-btn">Vote</button>
+      </div>
+    </form>
+    ${poll.hide_results_until_close && isVotable()
+      ? '<div class="hidden-note">Results unlock when voting closes — come back then to see the breakdown.</div>' : ""}
+    ${resultsLinkHtml()}
+    ${shareHtml()}`;
+  $("#vote-form").addEventListener("submit", onVote);
+  maybeRenderTurnstile();
+}
+
+function resultsLinkHtml() {
+  if (!isVotable() || getVotedOptionId()) return "";
+  return `<div class="btnrow"><button type="button" class="btn-ghost" id="view-results">View results</button></div>`;
+}
+
+function shareHtml() {
+  return `<div class="share-row">
+    <button type="button" class="btn-ghost" id="share-btn">Share poll</button>
+    <button type="button" class="btn-ghost" id="copy-btn">Copy link</button>
+    <span class="notice ok" id="share-ok" role="status" hidden>Copied!</span>
+  </div>`;
+}
+
+function bindShare() {
+  const url = shareUrl(), text = poll.description || poll.title;
+  const okMsg = $("#share-ok");
+  const flash = () => { if (okMsg) { okMsg.hidden = false; setTimeout(() => okMsg.hidden = true, 1800); } };
+  const sb = $("#share-btn"), cb = $("#copy-btn");
+  if (sb) sb.addEventListener("click", async () => {
+    if (navigator.share) {
+      try { await navigator.share({ title: document.title, text, url }); } catch (e) {}
+    } else {
+      await copyText(url); flash();
+    }
+  });
+  if (cb) cb.addEventListener("click", async () => { await copyText(url); flash(); });
+}
+async function copyText(t) {
+  try { await navigator.clipboard.writeText(t); }
+  catch (e) {
+    const ta = document.createElement("textarea");
+    ta.value = t; document.body.appendChild(ta); ta.select();
+    try { document.execCommand("copy"); } catch (e2) {}
+    ta.remove();
+  }
+}
+function shareUrl() {
+  const u = new URL(location.href);
+  u.searchParams.set("poll", poll.slug);
+  return u.toString();
+}
+
+/* gradient-highlight the first clause of the title, like the infographic */
+function highlightFirst(title) {
+  const t = esc(title);
+  const m = t.match(/^(.+?\?)(.*)$/s);
+  if (m) return `<span class="g">${m[1]}</span>${m[2]}`;
+  return `<span class="g">${t}</span>`;
+}
+
+function renderResults(res, opts) {
+  opts = opts || {};
+  const votedId = getVotedOptionId();
+  const total = res.total || 0;
+  let html = `<div class="status-row">${statusPill()}</div>
+    <h1>${highlightFirst(poll.title)}</h1>
+    <p class="lede">${esc(poll.description || "")}</p>`;
+
+  if (res.hidden) {
+    html += `<div class="hidden-note"><strong>Results are hidden until voting closes.</strong><br>
+      ${total} ${total === 1 ? "vote" : "votes"} so far — check back when the poll closes to see the breakdown.</div>`;
+  } else {
+    const rows = res.options.map(o => {
+      const mine = votedId && String(o.option_id) === String(votedId);
+      return `<div class="res-row${mine ? " mine" : ""}">
+        <div class="res-head"><span class="opt-label"><span aria-hidden="true">${esc(o.emoji)} </span>${esc(o.label)}</span>
+        <span><span class="pct">${o.pct}%</span> <span class="votes">· ${o.votes} votes</span></span></div>
+        <div class="bar" role="img" aria-label="${esc(o.label)}: ${o.pct}% (${o.votes} votes)">
+          <i data-w="${o.pct}"></i></div>
+      </div>`;
+    }).join("");
+    html += `<div class="results" role="region" aria-label="Poll results">${rows}</div>
+      <p class="total">${total} total ${total === 1 ? "vote" : "votes"}${
+        votedId ? " · you voted" : ""}${
+        !isVotable() ? " · voting closed" : ""}</p>`;
+  }
+  if (opts.message) html += `<div class="notice ok" role="status">${esc(opts.message)}</div>`;
+  if (opts.error) html += `<div class="notice err" role="alert">${esc(opts.error)}</div>`;
+  html += shareHtml();
+  contentEl.innerHTML = html;
+  bindShare();
+  /* animate bars after paint */
+  requestAnimationFrame(() => requestAnimationFrame(() => {
+    contentEl.querySelectorAll(".bar > i").forEach(el => {
+      el.style.width = el.getAttribute("data-w") + "%";
+    });
+  }));
+}
+
+function renderNotFound() {
+  contentEl.innerHTML = `<h1>Poll not found</h1>
+    <p class="lede">This poll doesn't exist or isn't available right now.</p>
+    <div class="btnrow"><a class="btn-ghost" href="${esc(location.pathname)}" style="text-decoration:none;display:inline-block">Back to latest poll</a></div>`;
+  showContent();
+}
+
+function voteError(msg) {
+  const el = $("#vote-err");
+  if (el) { el.textContent = msg; el.hidden = false; el.focus && el.focus(); }
+}
+
+/* ---------- voting ---------- */
+async function onVote(ev) {
+  ev.preventDefault();
+  const sel = contentEl.querySelector('input[name="poll-opt"]:checked');
+  if (!sel) { voteError("Please pick one answer first."); return; }
+  const btn = $("#vote-btn");
+  btn.disabled = true; btn.textContent = "Voting…";
+  const errBox = $("#vote-err"); if (errBox) errBox.hidden = true;
+
+  try {
+    fp = fp || await fingerprint();
+    let token = null;
+    if (poll.require_captcha && CFG.TURNSTILE_SITEKEY) {
+      token = await ensureTurnstileToken();
+      if (!token) { voteError("Please complete the CAPTCHA first."); btn.disabled = false; btn.textContent = "Vote"; return; }
+    }
+
+    if (!LIVE) {
+      /* preview: local tally */
+      const counts = previewVotes();
+      counts[sel.value] = (counts[sel.value] || 0) + 1;
+      try { localStorage.setItem(pvKey(poll.slug), JSON.stringify(counts)); } catch (e) {}
+      setVotedOptionId(sel.value);
+      renderResults(previewResults(), { message: "Vote counted (preview mode)." });
+      showContent();
+      return;
+    }
+
+    const { status, data } = await edgeFn("vote", {
+      poll_id: poll.id, option_id: sel.value, fingerprint: fp,
+      ...(token ? { turnstile_token: token } : {})
+    });
+
+    if (data.ok) {
+      setVotedOptionId(sel.value);
+      const msg = data.already_voted
+        ? "You've already voted in this poll — showing the current results."
+        : "Thanks for voting!";
+      renderResults(data.results, { message: msg });
+      showContent();
+      return;
+    }
+    const friendly = {
+      poll_closed: "This poll is now closed — voting has ended.",
+      invalid_option: "That answer isn't valid for this poll. Please reload and try again.",
+      captcha_failed: "CAPTCHA verification failed. Please try again.",
+      banned: "Voting isn't available from this device right now.",
+      rate_limited: "You're voting too quickly — please wait a bit and try again."
+    };
+    voteError(friendly[data.error] || "Something went wrong. Please try again.");
+    if (status === 400 && data.error === "poll_closed") {
+      const res = await rpc("get_public_results", { p_poll_id: poll.id }).catch(() => null);
+      if (res) { poll.status = "closed"; renderResults(res); showContent(); return; }
+    }
+  } catch (e) {
+    voteError("Couldn't reach the server. Check your connection and try again.");
+  }
+  btn.disabled = false; btn.textContent = "Vote";
+}
+
+/* ---------- Turnstile (optional) ---------- */
+function maybeRenderTurnstile() {
+  if (!poll.require_captcha || !CFG.TURNSTILE_SITEKEY || !LIVE) return;
+  if (window.turnstile) { renderWidget(); return; }
+  const s = document.createElement("script");
+  s.src = "https://challenges.cloudflare.com/turnstile/v0/api.js";
+  s.async = true; s.defer = true;
+  s.onload = renderWidget;
+  document.head.appendChild(s);
+}
+function renderWidget() {
+  const slot = $("#captcha-slot");
+  if (!slot || !window.turnstile || turnstileWidgetId !== null) return;
+  turnstileWidgetId = window.turnstile.render(slot, {
+    sitekey: CFG.TURNSTILE_SITEKEY,
+    callback: t => { turnstileToken = t; },
+    "expired-callback": () => { turnstileToken = null; }
+  });
+}
+function ensureTurnstileToken() {
+  return Promise.resolve(turnstileToken);
+}
+
+/* ---------- view tracking ---------- */
+async function trackView() {
+  if (!LIVE || !poll) return;
+  try {
+    fp = fp || await fingerprint();
+    edgeFn("track-view", { poll_id: poll.id, fingerprint: fp });
+  } catch (e) {}
+}
+
+/* ---------- boot ---------- */
+async function boot() {
+  showLoading();
+  const slug = new URLSearchParams(location.search).get("poll");
+  try {
+    if (LIVE) {
+      const found = await loadPollLive(slug);
+      if (!found) { renderNotFound(); return; }
+      poll = found.poll; options = found.options;
+    } else {
+      if (slug && slug !== PREVIEW_SEED.slug) { renderNotFound(); return; }
+      poll = Object.assign({}, PREVIEW_SEED);
+      options = PREVIEW_SEED.options.slice();
+    }
+  } catch (e) {
+    contentEl.innerHTML = `<h1>Couldn't load the poll</h1>
+      <p class="lede">Check your connection and reload the page.</p>
+      <div class="btnrow"><button class="btn-ghost" onclick="location.reload()">Reload</button></div>`;
+    showContent();
+    return;
+  }
+
+  applyTheme(poll.theme);
+  setMeta(poll);
+  renderDisclaimer();
+
+  const votedId = getVotedOptionId();
+  const closed = !isVotable();
+
+  if (LIVE) {
+    let res = null;
+    try { res = await rpc("get_public_results", { p_poll_id: poll.id }); } catch (e) {}
+    if (res && (res.hidden || votedId || closed)) {
+      renderResults(res);
+    } else if (res && !closed && !votedId) {
+      renderVoteForm();
+      if (poll.hide_results_until_close) { /* form already notes the lock */ }
+    } else {
+      /* results RPC failed but poll loaded — still allow voting */
+      renderVoteForm();
+    }
+    showContent();
+    trackView(); /* once per page load */
+  } else {
+    if (votedId || closed) renderResults(previewResults());
+    else renderVoteForm();
+    showContent();
+  }
+  bindShare();
+}
+
+document.addEventListener("DOMContentLoaded", boot);
+</script>
+</body>
+</html>
